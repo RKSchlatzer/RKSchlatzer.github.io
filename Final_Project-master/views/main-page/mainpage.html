@@ -1,0 +1,36 @@
+<div class="container mainContainer">
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Map Stuff</h3>
+      <div id="map"></div><br>
+    </div> <br>
+    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+
+  <div class="row">
+    <div class="col-sm-8">
+      <h4>Chart Stuff</h4>
+      <p>Homicides per Month by Precinct (2016)</p><br>
+      <label>Select a precinct:</label><br>
+      <select class ="mainDropdown" ng-model="selected" ng-change="getData(selected)">
+        <option ng-repeat="precinct in precincts" value="{{precinct.value}}">{{precinct.name}}</option>
+      </select>
+      <div class="pieChart" id="piechart_3d" style="width: 900px; height: 500px;"></div>
+      <div id="columnchart_values" style="width: 900px; height: 300px;"></div><br>
+      <div class = "mainPrecinctInfo">
+        <ul>
+          <li ng-repeat="homicide in allHomicides">
+            Date: {{homicide.date}}<br>
+            Description: {{homicide.desc}}<br>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+      <h4>Twitter Feed</h4>
+      <a class="twitter-timeline" href="https://www.twitter.com/detroitpolice" data-tweet-limit="4">Tweets by detroitpolice</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+  </div>
+
+</div>
